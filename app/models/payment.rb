@@ -1,3 +1,3 @@
 class Payment < ApplicationRecord
-  belongs_to :transaction
+  belongs_to :checkout
 end
