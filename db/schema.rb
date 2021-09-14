@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_14_094754) do
+ActiveRecord::Schema.define(version: 2021_09_14_095327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "checkout", force: :cascade do |t|
+  create_table "checkouts", force: :cascade do |t|
     t.bigint "buyer_id"
     t.bigint "listing_id"
     t.bigint "payment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["buyer_id"], name: "index_checkout_on_buyer_id"
-    t.index ["listing_id"], name: "index_checkout_on_listing_id"
-    t.index ["payment_id"], name: "index_checkout_on_payment_id"
+    t.index ["buyer_id"], name: "index_checkouts_on_buyer_id"
+    t.index ["listing_id"], name: "index_checkouts_on_listing_id"
+    t.index ["payment_id"], name: "index_checkouts_on_payment_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_094754) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "checkout", "listings"
-  add_foreign_key "checkout", "payments"
-  add_foreign_key "checkout", "users", column: "buyer_id"
+  add_foreign_key "checkouts", "listings"
+  add_foreign_key "checkouts", "payments"
+  add_foreign_key "checkouts", "users", column: "buyer_id"
   add_foreign_key "listings", "users", column: "seller_id"
 end
