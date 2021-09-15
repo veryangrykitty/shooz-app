@@ -4,10 +4,13 @@
   <%= simple_form_for @listing do |f| %>
     <%= f.input :sneaker_model_name %>
     <%= f.input :brand %>
-    <%= f.input :size %>
-    <%# <%= f.input :gender %>
-    <%= f.input :condition, collection: %w[new worn] %>
+    <div class="d-flex">
+      <%= f.input :gender, collection: ['Male', 'Female'] %>
+      <%= f.input :size, placeholder: 'e.g. UK 8.5' %>
+    </div>
+    <%= f.input :condition, collection: ['Brand New', 'Like new', 'Used'] %>
+    <%= f.input :price, placeholder: 'SGD' %>
 
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-primary btn-block' %>
   <% end %>
 </div>
