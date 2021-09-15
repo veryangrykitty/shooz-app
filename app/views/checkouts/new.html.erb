@@ -6,19 +6,20 @@
 
 <div class="container">
   <div class="border">
-    <p>Item: <%=  @listing.sneaker_model_name%></p>
+    <p>Item: <%=  @listing.sneaker_model_name %></p>
     <p>Size: <%= @listing.size %></p>
     <p>Price: <%= @listing.price %></p>
   </div>
 
   <div class="border">
     <h2>Shipping Details</h2>
-    <% if @shippingdetail.any? %>
-      <%= render @shippingdetail %>
+    <% unless @shippingdetails.nil? %>
+      <%= render @shippingdetails %>
     <% else %>
       <p>There is no existing address</p>
     <% end %>
-    <%= render "shippingdetails/newshippingdetail", newshippingdetail: @newshippingdetail %>
+
+    <%= render "shippingdetails/newshippingdetail", newshippingdetail: @newshippingdetail, listing: @listing %>
     <a href="/payment" class="btn btn-info btn-block mt-4">Proceed to payment</a>
   </div>
 </div>
