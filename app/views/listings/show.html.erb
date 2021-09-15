@@ -1,2 +1,33 @@
-<h1>Listings#show</h1>
-<p>Find me in app/views/listings/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="listing_images col-6">
+      <img class="" src="https://source.unsplash.com/400x400/?sneaker" alt="sneaker image">
+    </div>
+    <div id="listing_content" class="col-6">
+      <h3>Model: <%= @listing.sneaker_model_name %></h3>
+      <h3>Brand: <%= @listing.brand %></h3>
+      <h4>$ <%= @listing.price %></h4>
+      <p>Condition: <%= @listing.condition %></p>
+      
+      <div id="content-low text-center border-left">
+        <div id="size-and-gender-table">
+          <table class="table table-dark table-sm align-middle text-center">
+            <thead>
+              <tr>
+                <th scope="col">Size</th>
+                <th scope="col">Gender</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= @listing.size %></td>
+                <td><%= @listing.gender %></td>
+              </tr>
+            </tbody>
+          </table>
+          <%= link_to "Buy", checkouts_new_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
