@@ -9,7 +9,7 @@
         <h3>Brand: <%= @listing.brand %></h3>
         <h4>$ <%= @listing.price %></h4>
         <p>Condition: <%= @listing.condition %></p>
-        
+
         <div class="text-center border-left">
 
           <div id="size-and-gender-table">
@@ -29,7 +29,7 @@
             </table>
           </div>
 
-          <%= link_to "Buy", checkouts_new_path, id: "buy-btn", class: 'btn btn-lg btn-primary' %>
+          <%= link_to "Buy", checkout_path, id: "buy-btn", class: 'btn btn-lg btn-primary' %>
 
         </div>
       </div>
