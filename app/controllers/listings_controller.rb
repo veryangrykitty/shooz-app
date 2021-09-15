@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:edit, :show, :update]
+  # before_action :set_all_listings, only: [:index, :show]
 
   def index
     @listings = Listing.all.first(16)
@@ -30,12 +31,15 @@ class ListingsController < ApplicationController
   end
 
   def seller_all
-    seller_id = current_user.id
-    @listings = Listing.filter(params[seller_id])
+    @listings = Listing.where(user: current_user)
   end
 
   def category
     @listings = Listing.filter(params[:value])
+  end
+
+  def search
+
   end
 
   private
@@ -47,4 +51,8 @@ class ListingsController < ApplicationController
   def listing_params
     params.require(:listing).permit(:brand, :sneaker_model_name, :size, :price, :condition, :availability)
   end
+
+  # def set_all_listings
+  #   @empty_listing = Listing.new
+  # end
 end

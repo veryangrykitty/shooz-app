@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :payment, only: [:create]
 
   get '/mylistings', to: "listings#seller_all"
+  get '/listings?search=:value', to: 'listings#search'
   get '/listings?category=:value', to: "listings#category"
 end
