@@ -24,6 +24,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+    set_listing
   end
 
   def update
