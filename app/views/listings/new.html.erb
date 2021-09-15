@@ -1,2 +1,13 @@
-<h1>Listings#new</h1>
-<p>Find me in app/views/listings/new.html.erb</p>
+<div class="container">
+  <h1>Create new listing</h1>
+
+  <%= simple_form_for @listing do |f| %>
+    <%= f.input :sneaker_model_name %>
+    <%= f.input :brand %>
+    <%= f.input :size %>
+    <%# <%= f.input :gender %>
+    <%= f.input :condition, collection: %w[new worn] %>
+
+    <%= f.button :submit %>
+  <% end %>
+</div>
