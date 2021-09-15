@@ -7,9 +7,10 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-
+    @listing.availability = true
+    @listing.seller = current_user
     if @listing.save
-      redirect_to @listing
+      redirect_to seller_path(current_user)
     else
       render :new
     end
