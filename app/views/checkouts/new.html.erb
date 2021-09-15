@@ -1,2 +1,24 @@
-<h1>Checkouts#new</h1>
-<p>Find me in app/views/checkouts/new.html.erb</p>
+<div class="container">
+  <h1>Checkout</h1>
+  <h2>Personal details</h2>
+  <p><strong>Email: </strong><%= current_user.email %></p>
+</div>
+
+<div class="container">
+  <div class="border">
+    <p>Item: <%=  @listing.sneaker_model_name%></p>
+    <p>Size: <%= @listing.size %></p>
+    <p>Price: <%= @listing.price %></p>
+  </div>
+
+  <div class="border">
+    <h2>Shipping Details</h2>
+    <% if @shippingdetail.any? %>
+      <%= render @shippingdetail %>
+    <% else %>
+      <p>There is no existing address</p>
+    <% end %>
+    <%= render "shippingdetails/newshippingdetail", newshippingdetail: @newshippingdetail %>
+    <a href="/payment" class="btn btn-info btn-block mt-4">Proceed to payment</a>
+  </div>
+</div>

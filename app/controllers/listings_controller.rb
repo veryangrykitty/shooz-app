@@ -3,14 +3,14 @@ class ListingsController < ApplicationController
   # before_action :set_all_listings, only: [:index, :show]
 
   def index
-    @listings = Listing.all.first(16)
   end
 
   def create
     @listing = Listing.new(listing_params)
-
+    @listing.availability = true
+    @listing.seller = current_user
     if @listing.save
-      redirect_to @listing
+      redirect_to seller_path(current_user)
     else
       render :new
     end
@@ -32,7 +32,8 @@ class ListingsController < ApplicationController
   end
 
   def seller_all
-    @listings = Listing.where(user: current_user)
+    @seller = User.find(params[:id])
+    @listings = Listing.where("seller_id = #{params[:id]}")
   end
 
   def category
