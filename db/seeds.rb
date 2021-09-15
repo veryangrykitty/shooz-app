@@ -23,7 +23,8 @@ lastfiveusers.each do |user|
     price = rand(300)
     condition = %w[new used].sample
     availability = true
-    listing = Listing.new(brand: brand, sneaker_model_name: modelname, size: size, price: price, condition: condition, availability: availability)
+    gender = %w[male female].sample
+    listing = Listing.new(brand: brand, sneaker_model_name: modelname, size: size, price: price, condition: condition, availability: availability, gender: gender)
     listing.seller = user
     listing.save
     puts "listing created"
