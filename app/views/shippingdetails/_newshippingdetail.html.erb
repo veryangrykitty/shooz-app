@@ -8,6 +8,8 @@
     <%= f.input :city %>
     <%= f.input :country %>
     <%= f.input :postal, label: "Postal Code"%>
+    <%= f.hidden_field :listing_id, :value => @listing.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.button :submit, class: "btn btn-primary btn-block", value: "Add" %>
   <% end %>
 </div>

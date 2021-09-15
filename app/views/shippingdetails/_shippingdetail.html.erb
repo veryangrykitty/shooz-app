@@ -1,7 +1,17 @@
-<%= @shippingdetail.firstname %>
-<%= @shippingdetail.lastname %>
-<%= @shippingdetail.contact %>
-<%= @shippingdetail.address %>
-<%= @shippingdetail.city %>
-<%= @shippingdetail.country %>
-<%= @shippingdetail.postal %>
+<div class='border'>
+  <div class="d-flex justify-content-between">
+
+    <div>
+      <p class='m-0 mt-2'>First name: <%= shippingdetail.firstname %></p>
+      <p class='m-0'>Last name: <%= shippingdetail.lastname %></p>
+      <p class='m-0'>Contact Number: <%= shippingdetail.contact %></p>
+      <p class='m-0'>Address: <%= shippingdetail.address %></p>
+      <p class='m-0'>City: <%= shippingdetail.city %></p>
+      <p class='m-0'>Country: <%= shippingdetail.country %></p>
+      <p class='m-0 mb-2'>Postal Code:<%= shippingdetail.postal %></p>
+    </div>
+    <div class="align-item-center">
+      <a href="#" class="btn btn-danger btn-block">Delete</a>
+    </div>
+  </div>
+</div>
