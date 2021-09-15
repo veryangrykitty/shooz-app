@@ -1,8 +1,9 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:edit, :show, :update]
+  before_action :set_listing, only: [:edit, :show, :update, :destroy]
   # before_action :set_all_listings, only: [:index, :show]
 
   def index
+    # needed for pages#home
   end
 
   def create
@@ -24,11 +25,15 @@ class ListingsController < ApplicationController
   end
 
   def show
-    set_listing
+
   end
 
   def update
 
+  end
+
+  def destroy
+    @listing.destroy
   end
 
   def seller_all
