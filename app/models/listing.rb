@@ -1,5 +1,4 @@
 class Listing < ApplicationRecord
-  has_many :transactions
+  has_many :checkout
   belongs_to :seller, class_name: "User"
-
 end
