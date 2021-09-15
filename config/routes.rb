@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get 'shippingdetails/create'
   get 'payment/create'
   get 'checkouts/new'
   get 'checkouts/create'
