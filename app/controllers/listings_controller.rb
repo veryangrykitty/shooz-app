@@ -25,15 +25,21 @@ class ListingsController < ApplicationController
   end
 
   def show
-
   end
 
   def update
-
+    @listing.availability = true
+    @listing.seller = current_user
+    if @listing.update(listing_params)
+      redirect_to listing_path(@listing)
+    else
+      render :new
+    end
   end
 
   def destroy
     @listing.destroy
+    redirect_to seller_path(current_user)
   end
 
   def seller_all
@@ -56,7 +62,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:brand, :sneaker_model_name, :size, :price, :condition, :availability)
+    params.require(:listing).permit(:brand, :sneaker_model_name, :size, :price, :condition, :gender)
   end
 
   # def set_all_listings
