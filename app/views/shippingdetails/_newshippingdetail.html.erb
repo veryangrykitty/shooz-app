@@ -1,0 +1,13 @@
+<div>
+  <h3>Add new shipping details</h3>
+  <%= simple_form_for @newshippingdetail do |f| %>
+    <%= f.input :firstname, label: "First Name"%>
+    <%= f.input :lastname, label: "Last Name" %>
+    <%= f.input :contact, label: "Contact Number" %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :country %>
+    <%= f.input :postal, label: "Postal Code"%>
+    <%= f.button :submit, class: "btn btn-primary btn-block", value: "Add" %>
+  <% end %>
+</div>

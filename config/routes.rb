@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   # get 'shippingdetails/create'
   get 'payment/create'
-  get 'checkouts/new'
-  get 'checkouts/create'
+  # get 'checkouts/new'
+  # get 'checkouts/create'
+  get 'shippingdetails', to: "shippingdetails#new"
   # get 'listings/index'
   # get 'listings/create'
   # get 'listings/new'
@@ -15,10 +16,11 @@ Rails.application.routes.draw do
 
   resources :listings
 
-  resources :checkout, only: [:new, :create]
+  resources :checkout, only: [:create]
   resources :payment, only: [:create]
 
   get '/seller/:id', to: "listings#seller_all", as: :seller
   get '/listings?search=:value', to: 'listings#search'
   get '/listings?category=:value', to: "listings#category"
+  get '/listings/:id/checkout', to: 'checkouts#new', as: :checkout
 end

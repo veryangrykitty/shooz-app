@@ -1,7 +1,10 @@
 class CheckoutsController < ApplicationController
   def new
+    @listing = Listing.find(params[:id])
     @checkout = Checkout.new
     @payment = Payment.new
+    @newshippingdetail = Shippingdetail.new
+    @shippingdetail = Shippingdetail.where("user_id = #{current_user.id}")
   end
 
   def create
