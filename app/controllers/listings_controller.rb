@@ -3,7 +3,6 @@ class ListingsController < ApplicationController
   # before_action :set_all_listings, only: [:index, :show]
 
   def index
-    @listings = Listing.all.first(16)
   end
 
   def create
@@ -31,7 +30,8 @@ class ListingsController < ApplicationController
   end
 
   def seller_all
-    @listings = Listing.where(user: current_user)
+    @seller = User.find(params[:id])
+    @listings = Listing.where("seller_id = #{params[:id]}")
   end
 
   def category
