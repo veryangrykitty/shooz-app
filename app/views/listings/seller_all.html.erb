@@ -1,3 +1,9 @@
-<h1><%= @seller.username %> listings</h1>
-<p>to render seller listings</p>
-<%= link_to "Post a new listing", "/listings/new", class: "nav-link" %>
+<div class="container">
+  <% if @seller == current_user %>
+    <h1>Your listings</h1>
+    <%= link_to "Create a new listing", "/listings/new", class: "btn btn-primary" %>
+  <% else %>
+    <h1><%= @seller.email %> listings</h1>
+  <% end %>
+  <%= render @listings %>
+</div>
