@@ -19,8 +19,12 @@ Rails.application.routes.draw do
   resources :shippingdetails, only: [:create, :destroy]
 
   resources :payments, only: [:new, :create]
+  resources :orders, only: [:show, :create]
+
 
   get '/seller/:id', to: "listings#seller_all", as: :seller
+  get '/seller/:id/shipping', to: "listings#seller_ship", as: :seller_ship
+
   get '/listings?search=:value', to: 'listings#search'
   get '/listings?category=:value', to: "listings#category"
   get '/listings/:id/checkout', to: 'checkouts#new', as: :checkout
