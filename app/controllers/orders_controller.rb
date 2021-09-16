@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
+      mode: 'payment',
       line_items: [{
         quantity: 1,
         price_data: {
