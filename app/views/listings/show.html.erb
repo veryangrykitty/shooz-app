@@ -13,7 +13,6 @@
             <h1><strong><%= @listing.sneaker_model_name %></strong></h1>
             <h3><strong><%= @listing.brand %></strong></h3>
             <p class="pt-5">Condition: <%= @listing.condition %></p>
-            <h4 class="py-5">SGD <%= @listing.price %></h4>
           </div>
 
           <% if current_user == @listing.seller %>
@@ -40,6 +39,8 @@
                 </tr>
               </tbody>
             </table>
+
+            <h4 class="pt-5 pb-2">SGD <%= @listing.price %></h4>
 
           <%= link_to "Buy", checkout_path, id: "buy-btn", class: 'btn btn-lg btn-primary' %>
         </div>
