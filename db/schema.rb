@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_034818) do
+ActiveRecord::Schema.define(version: 2021_09_16_044402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 2021_09_16_034818) do
     t.bigint "payment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "sneaker_model_name"
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
     t.index ["buyer_id"], name: "index_checkouts_on_buyer_id"
     t.index ["listing_id"], name: "index_checkouts_on_listing_id"
     t.index ["payment_id"], name: "index_checkouts_on_payment_id"

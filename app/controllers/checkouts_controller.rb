@@ -22,8 +22,6 @@ class CheckoutsController < ApplicationController
 
   def add_shipping_detail
     @listing = Listing.find(params[:id])
-
-    raise
     @newshippingdetail = Shippingdetail.new
     @shippingdetails = Shippingdetail.where("user_id = #{current_user.id}")
 
