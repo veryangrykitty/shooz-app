@@ -1,10 +1,5 @@
 class PaymentsController < ApplicationController
-  def create
-
-    # if @payment.save
-    #   render "checkouts/create"
-    # else
-    #   render "checkouts/new"
-    # end
+  def new
+    @order = current_user.orders.where(state: 'pending').find(params[:order_id])
   end
 end
