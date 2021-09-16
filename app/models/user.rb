@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :checkouts, class_name: "Checkouts", foreign_key: "buyer_id"
   has_many :listings, class_name: "Listing", foreign_key: "seller_id"
+  has_many :orders
 end

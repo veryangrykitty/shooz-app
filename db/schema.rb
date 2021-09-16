@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_044402) do
+ActiveRecord::Schema.define(version: 2021_09_16_050533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,6 @@ ActiveRecord::Schema.define(version: 2021_09_16_044402) do
     t.bigint "payment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "sneaker_model_name"
-    t.string "state"
-    t.integer "amount_cents", default: 0, null: false
-    t.string "checkout_session_id"
     t.index ["buyer_id"], name: "index_checkouts_on_buyer_id"
     t.index ["listing_id"], name: "index_checkouts_on_listing_id"
     t.index ["payment_id"], name: "index_checkouts_on_payment_id"
@@ -42,6 +38,20 @@ ActiveRecord::Schema.define(version: 2021_09_16_044402) do
     t.string "gender"
     t.integer "price_cents", default: 0, null: false
     t.index ["seller_id"], name: "index_listings_on_seller_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "sneaker_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "listing_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_orders_on_listing_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -80,5 +90,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_044402) do
   add_foreign_key "checkouts", "payments"
   add_foreign_key "checkouts", "users", column: "buyer_id"
   add_foreign_key "listings", "users", column: "seller_id"
+  add_foreign_key "orders", "listings"
+  add_foreign_key "orders", "users"
   add_foreign_key "shippingdetails", "users"
 end
