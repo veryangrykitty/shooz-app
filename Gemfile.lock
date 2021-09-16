@@ -313,4 +313,8 @@ RUBY VERSION
    ruby 2.7.3p183
 
 BUNDLED WITH
+<<<<<<< HEAD
    2.2.24
+=======
+   2.2.27
+>>>>>>> 530ca57 (gogo)
