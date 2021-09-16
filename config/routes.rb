@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   resources :listings
   resources :shippingdetails, only: [:create, :destroy]
 
-  resources :payments, only: [:new, :create]
-  resources :orders, only: [:show, :create]
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
 
 
   get '/seller/:id', to: "listings#seller_all", as: :seller
@@ -31,4 +32,5 @@ Rails.application.routes.draw do
   post '/listings/:id/checkout', to: 'checkouts#create', as: :checkout_create
 
   post '/listings/:id/checkout', to: 'checkouts#add_shipping_detail', as: :checkout_add_shipping_detail
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
