@@ -8,25 +8,28 @@
     </div>
 
     <div class="col-12 col-md-6">
-      <div class="pt-5">
-        <div class="d-flex justify-content-end">
+      <div class="pt-5 d-flex w-100">
+        <div class="flex-grow-1">
+          <%= simple_form_for @listing do |f| %>
+            <%= f.input :sneaker_model_name %>
+            <%= f.input :brand %>
+            <div class="d-flex">
+              <%= f.input :gender, collection: ['Male', 'Female', 'Unisex'] %>
+              <%= f.input :size, placeholder: 'e.g. UK 8.5' %>
+            </div>
+            <%= f.input :condition, collection: ['Brand New', 'Like new', 'Used'] %>
+            <%= f.input :price, placeholder: 'SGD' %>
+
+            <%= f.button :submit, class: 'btn btn-primary btn-block mb-3' %>
+          <% end %>
+          <%= link_to 'Delete listing', listing_path(@listing), method: :delete, class: 'btn btn-outline-primary btn-block' %>
+        </div>
+
+        <div>
           <%= link_to listing_path(@listing), class: 'btn' do %>
             <i class="fas fa-times"></i>
           <% end %>
         </div>
-        <%= simple_form_for @listing do |f| %>
-          <%= f.input :sneaker_model_name %>
-          <%= f.input :brand %>
-          <div class="d-flex">
-            <%= f.input :gender, collection: ['Male', 'Female', 'Unisex'] %>
-            <%= f.input :size, placeholder: 'e.g. UK 8.5' %>
-          </div>
-          <%= f.input :condition, collection: ['Brand New', 'Like new', 'Used'] %>
-          <%= f.input :price, placeholder: 'SGD' %>
-
-          <%= f.button :submit, class: 'btn btn-primary btn-block mb-3' %>
-        <% end %>
-        <%= link_to 'Delete listing', listing_path(@listing), method: :delete, class: 'btn btn-outline-primary btn-block' %>
       </div>
 
     </div>
