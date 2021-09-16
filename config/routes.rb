@@ -34,9 +34,7 @@ Rails.application.routes.draw do
   get '/listings/:id/checkout', to: 'checkouts#new', as: :checkout
   post '/listings/:id/checkout', to: 'checkouts#create', as: :checkout_create
 
-<<<<<<< HEAD
   post '/listings/:id/checkout', to: 'checkouts#add_shipping_detail', as: :checkout_add_shipping_detail
   mount StripeEvent::Engine, at: '/stripe-webhooks'
-=======
->>>>>>> 530ca57 (gogo)
+
 end
