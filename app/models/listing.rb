@@ -4,4 +4,5 @@ class Listing < ApplicationRecord
 
   monetize :price_cents
 
+  has_many_attached :photos
 end
