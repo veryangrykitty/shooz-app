@@ -62,7 +62,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:brand, :sneaker_model_name, :size, :price, :condition, :gender)
+    params.require(:listing).permit(:brand, :sneaker_model_name, :size, :price, :condition, :gender, photos: [])
   end
 
   # def set_all_listings
