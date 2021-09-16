@@ -1,11 +1,13 @@
 <div class="container">
   <% if @seller == current_user %>
-    <h1>Your listings</h1>
+    <h1 class="pt-4 pl-4">Your listings</h1>
 
-    <div>
-      <%= link_to 'Listed', seller_path(current_user), class: 'mr-3' %>
+    <div class="d-flex justify-content-between pl-4 pb-3">
+      <div>
+        <%= link_to 'Listed', seller_path(current_user), class: 'mr-3' %>
 
-      <%= link_to 'To be shipped', seller_path(current_user), class: 'mr-3' %>
+        <%= link_to 'To be shipped', seller_ship_path(current_user), class: 'mr-3' %>
+      </div>
 
       <%= link_to new_listing_path, class: "btn btn-primary"  do %>
         <i class="fas fa-plus pr-2"></i>Create listing
@@ -16,6 +18,7 @@
     <h1><%= @seller.email %> listings</h1>
   <% end %>
 
-  <%= render @listings %>
-
+  <div class="d-flex flex-wrap">
+    <%= render @listings %>
+  </div>
 </div>
