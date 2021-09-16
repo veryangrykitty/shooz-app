@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :listings
   resources :shippingdetails, only: [:new, :create]
 
-  resources :payment, only: [:new, :create]
+  resources :payments, only: [:new, :create]
 
   get '/seller/:id', to: "listings#seller_all", as: :seller
   get '/listings?search=:value', to: 'listings#search'
