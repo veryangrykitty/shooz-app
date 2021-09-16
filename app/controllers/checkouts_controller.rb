@@ -20,6 +20,16 @@ class CheckoutsController < ApplicationController
     end
   end
 
+  def add_shipping_detail
+    @listing = Listing.find(params[:id])
+
+    raise
+    @newshippingdetail = Shippingdetail.new
+    @shippingdetails = Shippingdetail.where("user_id = #{current_user.id}")
+
+    render :new
+  end
+
   private
 
   def checkout_params

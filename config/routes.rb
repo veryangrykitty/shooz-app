@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :listings
-  resources :shippingdetails, only: [:new, :create]
+  resources :shippingdetails, only: [:create, :destroy]
 
   resources :payment, only: [:new, :create]
 
@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   get '/listings?category=:value', to: "listings#category"
   get '/listings/:id/checkout', to: 'checkouts#new', as: :checkout
   post '/listings/:id/checkout', to: 'checkouts#create', as: :checkout_create
+
+  post '/listings/:id/checkout', to: 'checkouts#add_shipping_detail', as: :checkout_add_shipping_detail
 end
