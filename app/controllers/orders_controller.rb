@@ -7,9 +7,14 @@ class OrdersController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: listing.sneaker_model_name,
-        amount: listing.price_cents,
-        currency: 'sgd',
-        quantity: 1
+        quantity: 1,
+        price_data: {
+          currency: 'sgd',
+          unit_amount: listing.price_cents,
+          product_data: {
+            name: listing.sneaker_model_name,
+          }
+        }
       }],
       success_url: order_path(order),
       cancel_url: order_path(order)
