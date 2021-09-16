@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row py-4">
-    <div class="col-md-3"><%= image_tag url('https://source.unsplash.com/200x200/?sneaker'), width: '100%' %></div>
+    <div class="col-md-3"><%= image_tag 'https://source.unsplash.com/200x200/?sneaker', width: '100%' %></div>
     <div class="col">
       <h1>Checkout summary</h1>
       <p>Purchase of <strong><%= @order.listing.sneaker_model_name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
