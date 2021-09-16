@@ -10,8 +10,7 @@ class ShippingdetailsController < ApplicationController
 
   def destroy
     Shippingdetail.destroy(params[:id])
-    @listing
-    redirect_to checkout_path(@listing)
+    redirect_back fallback_location: root_path
   end
 
   private

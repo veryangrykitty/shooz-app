@@ -12,10 +12,13 @@
     </div>
 
     <div class="d-flex flex-column justify-content-center">
-      <%= link_to 'Use shipping details' %>
-      <form action="<%= shippingdetail_path(shippingdetail) %>" method="delete">
-        <input type="submit" value="Delete">
+      <form action="<%= checkout_add_shippingdetail_path(@listing) %>" method="post">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <input type="hidden" name="shipping_id" value="<%= shippingdetail.id %>">
+        <input type="submit" value="Use shipping details">
       </form>
+
+      <%= link_to 'Delete', shippingdetail_path(shippingdetail), method: :delete %>
 
     </div>
   </div>
