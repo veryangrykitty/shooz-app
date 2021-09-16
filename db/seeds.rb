@@ -20,11 +20,11 @@ lastfiveusers.each do |user|
     brand = %w[nike adidas newbalance airjordan reebok].sample
     modelname = %w[a1 a2 a3 a4 a5 b1 b2 b3 b4 b5 c1 c2 c3 c4 c5].sample
     size = %w[US6 US6.5 US7 US7.5 US8 US8.5 US9 US9.5 US10 US10.5 US11].sample
-    price = rand(300)
+    price_cents = rand(30000)
     condition = %w[new used].sample
     availability = true
     gender = %w[male female].sample
-    listing = Listing.new(brand: brand, sneaker_model_name: modelname, size: size, price: price, condition: condition, availability: availability, gender: gender)
+    listing = Listing.new(brand: brand, sneaker_model_name: modelname, size: size, price_cents: price_cents, condition: condition, availability: availability, gender: gender)
     listing.seller = user
     listing.save
     puts "listing created"

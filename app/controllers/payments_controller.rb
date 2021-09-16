@@ -1,4 +1,4 @@
-class PaymentController < ApplicationController
+class PaymentsController < ApplicationController
   def create
 
     # if @payment.save
