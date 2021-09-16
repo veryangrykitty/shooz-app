@@ -30,6 +30,10 @@
           <p>Price: <%= @listing.price %></p>
         </div>
         <a href="/payment" class="btn btn-info btn-block mt-4">Proceed to payment</a>
+        <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'id', @listing.id %>
+          <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   </div>
