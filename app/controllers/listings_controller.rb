@@ -47,6 +47,11 @@ class ListingsController < ApplicationController
     @listings = Listing.where("seller_id = #{params[:id]}")
   end
 
+  def seller_ship
+    @seller = User.find(params[:id])
+    @listings = Listing.where("seller_id = #{params[:id]} AND availability = false")
+  end
+
   def category
     @listings = Listing.filter(params[:value])
   end
@@ -62,7 +67,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:brand, :sneaker_model_name, :size, :price, :condition, :gender)
+    params.require(:listing).permit(:brand, :sneaker_model_name, :size, :price, :condition, :gender, photos: [])
   end
 
   # def set_all_listings
