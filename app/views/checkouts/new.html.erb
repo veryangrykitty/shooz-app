@@ -1,14 +1,9 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-8">
-      <div>
-        <h1>Checkout</h1>
-        <h2>Personal details</h2>
-        <p><strong>Email: </strong><%= current_user.email %></p>
-      </div>
       <div class="border">
         <div>
-          <h2 class="px-5 py-3">Shipping Details</h2>
+          <h2 class="px-5 py-3">Checkout</h2>
           <% unless @shippingdetails.nil? %>
             <%= render @shippingdetails %>
           <% else %>
@@ -22,17 +17,10 @@
     </div>
     <div class="position-relative">
       <div class="position-fixed col-4">
-        <div class="border p-3">
-          <h2><strong>Order detail</strong></h2>
-          <img class="img-fluid" src="https://source.unsplash.com/450x450/?sneaker" alt="sneakers">
-          <p>Item: <%=  @listing.sneaker_model_name %></p>
-          <p>Size: <%= @listing.size %></p>
-          <p>Price: <%= @listing.price %></p>
-        </div>
-        <a href="/payment" class="btn btn-info btn-block mt-4">Proceed to payment</a>
+        <%= render "shared/checkoutitem" %>
         <%= form_tag orders_path do %>
           <%= hidden_field_tag 'id', @listing.id %>
-          <%= submit_tag 'Purchase', class: 'btn btn-primary btn-block mt-4' %>
+          <%= submit_tag 'Confirm shipping', class: 'btn btn-primary btn-block mt-4' %>
         <% end %>
       </div>
     </div>

@@ -1,6 +1,12 @@
 <div class="card text-center mb-5 mx-3">
   <%= link_to listing_path(listing), class: "text-decoration-none" do %>
+  <% if listing.photos.first %>
+    <%= cl_image_tag listing.photos.first.key, height: 200, width: 200, crop: :scale, class: "img-fluid" %>
+  <% else %>
     <img src="https://source.unsplash.com/200x200/?sneaker" class="card-img-top" alt="sneaker image">
+  <% end %>
+    
+
     <div class="card-body mb-4 mt-1">
 
       <h3 class="card-title my-1"><%= listing.sneaker_model_name %></h3>

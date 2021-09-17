@@ -146,7 +146,9 @@ GEM
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.12.4-x86_64-darwin)
+    nokogiri (1.12.4-x86_64-linux)
+      racc (~> 1.4)
+    nokogiri (1.12.4-x86_64-linux)
       racc (~> 1.4)
     nokogiri (1.12.4-x86_64-linux)
       racc (~> 1.4)
@@ -279,6 +281,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
