@@ -5,11 +5,11 @@
   <% else %>
     <img src="https://source.unsplash.com/200x200/?sneaker" class="card-img-top" alt="sneaker image">
   <% end %>
-    
+
 
     <div class="card-body mb-4 mt-1">
 
-      <h3 class="card-title my-1"><%= listing.sneaker_model_name %></h3>
+      <h3 class="card-title my-1"><%= listing.brand %> <%= listing.sneaker_model_name %></h3>
 
       <p class="card-text"><strong>$ <%= listing.price %></strong></p>
     </div>
