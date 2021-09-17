@@ -26,11 +26,11 @@ class PaymentsController < ApplicationController
     #   payment_method = event.data.object # contains a Stripe::PaymentMethod
     #   puts 'PaymentMethod was attached to a Customer!'
     # # ... handle other event types
-    when 'checkout.session.completed' || 'checkout.session.async_payment_succeeded'
+    when 'checkout.session.completed'
       order = Order.find_by(checkout_session_id: event.data.object.id)
       order.update(state: 'paid')
       order.save
-    when 'checkout.session.expired' || 'checkout.session.async_payment_failed'
+    when 'checkout.session.expired'
       order = Order.find_by(checkout_session_id: event.data.object.id)
       order.update(state: 'unsuccessful')
       order.save
