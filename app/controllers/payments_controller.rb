@@ -29,9 +29,11 @@ class PaymentsController < ApplicationController
     when 'checkout.session.completed' || 'checkout.session.async_payment_succeeded'
       order = Order.find_by(checkout_session_id: event.data.object.id)
       order.update(state: 'paid')
+      order.save
     when 'checkout.session.expired' || 'checkout.session.async_payment_failed'
       order = Order.find_by(checkout_session_id: event.data.object.id)
       order.update(state: 'unsuccessful')
+      order.save
     else
       puts "Unhandled event type: #{event.type}"
     end
