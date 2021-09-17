@@ -18,10 +18,12 @@
     <div class="position-relative">
       <div class="position-fixed col-4">
         <%= render "shared/checkoutitem" %>
-        <%= form_tag orders_path do %>
-          <%= hidden_field_tag 'id', @listing.id %>
-          <%= submit_tag 'Confirm shipping', class: 'btn btn-primary btn-block mt-4' %>
-        <% end %>
+        <div>
+          <%= form_tag orders_path do %>
+            <%= hidden_field_tag 'id', @listing.id %>
+            <%= submit_tag 'Confirm shipping', class: 'btn btn-primary btn-block mt-4' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
