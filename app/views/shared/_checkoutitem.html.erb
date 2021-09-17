@@ -2,9 +2,23 @@
   <h2 class="py-3">Order detail</h2>
   <img class="img-fluid" src="https://source.unsplash.com/450x450/?sneaker" alt="sneakers">
   <div class='my-2'>
-    <p class='m-0'>Item: <%=  @listing.sneaker_model_name %></p>
+    <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>   <p class='m-0'>Item: <%=  @listing.sneaker_model_name %></p>
     <p class='m-0'>Brand: <%=  @listing.brand%></p>
     <p class='m-0'>Size: <%= @listing.size %></p>
-    <p class='m-0'>Price: <%= @listing.price %></p>
+    <p class='m-0'>Price: <%= @listing.price %></p></td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+
   </div>
 </div>
