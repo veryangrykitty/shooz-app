@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
           }
         }],
         success_url: order_url(order),
-        cancel_url: orders_fail_url(order)
+        cancel_url: order_cancel_url(order)
       )
       order.update(checkout_session_id: session.id)
       redirect_to session.url
@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  def fail
+  def cancel
   end
 
   def show
