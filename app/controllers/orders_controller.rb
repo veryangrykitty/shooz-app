@@ -29,6 +29,9 @@ class OrdersController < ApplicationController
   end
 
   def cancel
+    @order = current_user.orders.find(params[:id])
+    @order.state = "cancelled"
+    @order.save
   end
 
   def show
