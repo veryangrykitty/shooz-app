@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     # resources :payments, only: :new
   end
 
-  get 'order/cancel', to: "orders#cancel"
+  get '/order/cancel', to: "orders#cancel"
   get '/seller/:id', to: "listings#seller_all", as: :seller
   get '/seller/:id/shipping', to: "listings#seller_ship", as: :seller_ship
 

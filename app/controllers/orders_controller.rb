@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
     if order.save
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
+        customer_email: current_user.email,
         mode: 'payment',
         line_items: [{
           quantity: 1,
