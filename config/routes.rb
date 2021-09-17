@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   resources :shippingdetails, only: [:create, :destroy]
 
   resources :orders, only: [:show, :create] do
-    resources :payments, only: :new
+    # resources :payments, only: :new
   end
 
-
+  get 'orders/fail', to: "orders#fail"
   get '/seller/:id', to: "listings#seller_all", as: :seller
   get '/seller/:id/shipping', to: "listings#seller_ship", as: :seller_ship
 

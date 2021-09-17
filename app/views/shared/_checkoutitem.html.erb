@@ -1,22 +1,22 @@
 <div class="border px-5">
-  <h2 class="py-3">Order detail</h2>
+  <h2 class="py-3">Order details</h2>
   <table class="table">
     <tbody>
       <tr>
         <th scope="row">Item: </th>
-        <td class='text-right'><%= @listing.sneaker_model_name %></td>
+        <td class='text-right'><%= listing.sneaker_model_name %></td>
       </tr>
       <tr>
         <th scope="row">Brand: </th>
-        <td class='text-right'><%= @listing.brand %></td>
+        <td class='text-right'><%= listing.brand %></td>
       </tr>
       <tr>
         <th scope="row">Size: </th>
-        <td class='text-right'><%= @listing.size %></td>
+        <td class='text-right'><%= listing.size %></td>
       </tr>
       <tr>
         <th scope="row">Price </th>
-        <td class='text-right'><%= humanized_money_with_symbol(@listing.price) %></td>
+        <td class='text-right'><%= humanized_money_with_symbol(listing.price) %></td>
       </tr>
     </tbody>
   </table>
