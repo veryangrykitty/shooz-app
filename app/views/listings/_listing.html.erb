@@ -1,4 +1,4 @@
-<div class="card text-center mb-5 mx-3">
+<div class="card mb-5 mx-3">
   <%= link_to listing_path(listing), class: "text-decoration-none" do %>
   <% if listing.photos.first %>
     <%= cl_image_tag listing.photos.first.key, height: 200, width: 200, crop: :scale, class: "img-fluid" %>
@@ -7,11 +7,14 @@
   <% end %>
 
 
-    <div class="card-body mb-4 mt-1">
+    <div class="card-body">
 
-      <h3 class="card-title my-1"><%= listing.brand %> <%= listing.sneaker_model_name %></h3>
+      <h3 class="card-title"><strong><%= listing.brand.capitalize %> <%= listing.sneaker_model_name.capitalize %></strong></h3>
 
-      <p class="card-text"><strong>$ <%= listing.price %></strong></p>
+      <div class="card-text d-flex justify-content-between align-items-end">
+        <p><%= listing.size %><br><%= listing.gender.capitalize %></p>
+        <p>SGD <strong><%= listing.price %></strong></p>
+      </div>
     </div>
   <% end %>
 </div>

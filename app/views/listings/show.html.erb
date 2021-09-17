@@ -12,9 +12,7 @@
     <div class="col-12 col-md-6">
         <div class="d-flex justify-content-between pt-5">
           <div>
-            <h1><strong><%= @listing.sneaker_model_name %></strong></h1>
-            <h3><strong><%= @listing.brand %></strong></h3>
-            <p class="pt-5">Condition: <%= @listing.condition %></p>
+            <h1><strong><%= @listing.brand.capitalize %> <%= @listing.sneaker_model_name.capitalize %></strong></h1>
           </div>
 
           <% if current_user == @listing.seller %>
@@ -24,29 +22,37 @@
           <% end %>
         </div>
 
-        <div class="text-center">
+        <table class="table table-white table-sm align-middle text-center mt-5">
+          <thead>
+            <tr>
+              <th scope="col">Size</th>
+              <th scope="col">Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @listing.size %></td>
+              <td><%= @listing.gender.capitalize %></td>
+            </tr>
+          </tbody>
+        </table>
 
-
-            <table class="table table-white table-sm align-middle text-center">
-              <thead>
-                <tr>
-                  <th scope="col">Size</th>
-                  <th scope="col">Gender</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><%= @listing.size %></td>
-                  <td><%= @listing.gender %></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <h4 class="pt-5 pb-2">SGD <%= @listing.price %></h4>
-
-          <%= link_to "Buy", checkout_path, id: "buy-btn", class: 'btn btn-lg btn-primary' %>
+        <div class="d-flex pt-3">
+          <p>
+            Condition: <br>
+            est. Delivery Time:
+          </p>
+          <p class="pl-4">
+            <%= @listing.condition.capitalize %><br>
+            <%= rand(1..10) %> days<br><br>
+          </p>
         </div>
 
+        <p class="pb-3">
+          SGD <strong><%= @listing.price %></strong></p>
+        </p>
+
+        <%= link_to "Make order", checkout_path, id: "buy-btn", class: 'btn btn-block btn-primary' %>
     </div>
   </div>
 </div>

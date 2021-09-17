@@ -23,7 +23,7 @@ lastfiveusers.each do |user|
     price_cents = rand(30000)
     condition = %w[new used].sample
     availability = true
-    gender = %w[male female].sample
+    gender = %w[male female unisex].sample
     listing = Listing.new(brand: brand, sneaker_model_name: modelname, size: size, price_cents: price_cents, condition: condition, availability: availability, gender: gender)
     # url = %w[ogr6ifvcuhjttn473eijtcatonwh mhjjyi2pwvqeeml0dozykd2md9nf no4lz5eyjpf7zd85uhv1c7al5jqi b86q12b9d7wqz9k2jqnonle15ava wvlf4rq27ms9w9mqp6ulrfqwbr83 0z2hrl7p9kmc3i0nj1xhxgc5strt z4zn0vph0odxkqph90sbrtfebd9u qk6bg1d61lv2jfygziper1hh0wu8 1vpmi4iudvk547szlefa3iyaac7t tbpggyj83wdt07uobpv6z5htl99g]
     # listing.photos.first.key = 'jffr7hnjkham7hl7naxfspu3quc6'
