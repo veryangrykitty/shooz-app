@@ -36,5 +36,6 @@ Rails.application.routes.draw do
 
   post '/listings/:id/checkout', to: 'checkouts#add_shipping_detail', as: :checkout_add_shipping_detail
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   post '/stripe-webhooks', to: 'payments#stripe', as: :stripe_webhooks
 end
