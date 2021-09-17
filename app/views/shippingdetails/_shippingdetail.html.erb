@@ -15,10 +15,10 @@
       <form action="<%= checkout_add_shippingdetail_path(@listing) %>" method="post">
         <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
         <input type="hidden" name="shipping_id" value="<%= shippingdetail.id %>">
-        <input type="submit" value="Use shipping details">
+        <input type="submit" value="Use shipping details", class='btn btn-primary'>
       </form>
 
-      <%= link_to 'Delete', shippingdetail_path(shippingdetail), method: :delete %>
+      <%= link_to 'Delete', shippingdetail_path(shippingdetail), method: :delete, class: "btn btn-info mt-3" %>
 
     </div>
   </div>
