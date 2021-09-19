@@ -1,0 +1,31 @@
+<div class="row border mt-3">
+  <div class="col-8">
+    <div class="px-5 py-3">
+      <h3>Order #<%= order.id %> <small><span class="badge badge-primary"><%= order.state %></span></small></h3>
+      <p>Estimated delivery in <strong>2 business days</strong></p>
+      <%= link_to "View listing", listing_path(order.listing), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <div class="col-4">
+    <table class="table my-3">
+      <tbody>
+        <tr>
+          <th scope="row">Item: </th>
+          <td class='text-right'><%= order.listing.sneaker_model_name %></td>
+        </tr>
+        <tr>
+          <th scope="row">Brand: </th>
+          <td class='text-right'><%= order.listing.brand %></td>
+        </tr>
+        <tr>
+          <th scope="row">Size: </th>
+          <td class='text-right'><%= order.listing.size %></td>
+        </tr>
+        <tr>
+          <th scope="row">Price </th>
+          <td class='text-right'><%= humanized_money_with_symbol(order.listing.price) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -5,30 +5,30 @@
       <%= image_tag "logo.png" %>
     <% end %>
     <li class="nav-item active pr-2">
-      <%= link_to "All", "/", class: "nav-link" %>
+      <%= link_to "ALL", "/", class: "nav-link" %>
     </li>
     <li class="nav-item active pr-2">
-      <%= link_to "Male", "/", class: "nav-link" %>
+      <%= link_to "MALE", "/", class: "nav-link" %>
     </li>
     <li class="nav-item active pr-2">
-      <%= link_to "Female", "/", class: "nav-link" %>
+      <%= link_to "FEMALE", "/", class: "nav-link" %>
     </li>
     <li class="nav-item active pr-2">
-      <%= link_to "Unisex", "/", class: "nav-link" %>
+      <%= link_to "UNISEX", "/", class: "nav-link" %>
     </li>
   </ul>
 
   <% if user_signed_in? %>
     <div class="nav-item dropdown text-white px-3">
       <div class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar mr-1" %>
         <%= current_user.email %>
         <% #, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       </div>
 
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <%= link_to "My purchase", orders_path, class: "dropdown-item" %>
         <%= link_to "My listings/orders", seller_path(current_user), class: "dropdown-item" %>
-        <%= link_to "Action", "#", class: "dropdown-item" %>
+
         <%= link_to "Another action", "#", class: "dropdown-item" %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div>
