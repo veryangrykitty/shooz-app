@@ -8,7 +8,7 @@
           <%= cl_image_tag listing.photos.first.key, crop: :scale, class: "img-fluid" %>
         </div>
       <% else %>
-        <img src="https://source.unsplash.com/200x200/?sneaker" class="card-img-top" alt="sneaker image">
+        <img src="https://source.unsplash.com/200x200/?sneaker" class="card-img-top img-holder" alt="sneaker image">
       <% end %>
 
       <% if user_signed_in? %>
