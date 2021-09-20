@@ -69,3 +69,6 @@ gem 'country_select', '~> 6.0'
 gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
+
+# Adds pagination display. Rad more: https://github.com/ddnexus/pagy
+gem 'pagy', '~> 3.5'

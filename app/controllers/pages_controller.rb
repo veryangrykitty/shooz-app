@@ -1,9 +1,13 @@
 class PagesController < ApplicationController
+  include Pagy::Backend
+
   skip_before_action :authenticate_user!, only: :home
   def home
     all_query
     @listings = Listing.all
     search_check
+    @pagy, @records = pagy(@listings)
+    # binding.pry
     render 'listings/index'
   end
 
