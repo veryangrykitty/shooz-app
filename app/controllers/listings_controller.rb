@@ -26,8 +26,8 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listings = @listing.seller.listings # to show listings from same seller
-    @listings = @listings.reject { |ele| ele.id == params[:id].to_i }.sample(3)
+    @listings_same_seller = @listing.seller.listings # to show listings from same seller
+    @listings_same_seller = @listings_same_seller.reject { |ele| ele.id == params[:id].to_i }.sample(3)
   end
 
   def update
