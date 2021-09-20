@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="col-8">
+    <div class="col-lg-8 col-md-12">
       <div class="border">
         <div>
           <h2 class="px-5 py-3">Checkout</h2>
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="position-relative">
-      <div class="position-fixed col-4">
+      <div id='checkout' class="position-fixed col-4">
         <%= render "shared/checkoutitem", listing: @listing %>
         <div>
           <%= form_tag orders_path do %>
