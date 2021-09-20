@@ -20,7 +20,7 @@
         <div class="collapse block" id="search-collapse">
           <div class="d-flex flex-wrap">
 
-            <div class="d-flex align-items-center pt-2">
+            <div class="d-flex align-items-center pt-1">
               <%= f.label :size, 'Size', class: 'label pr-2' %>
               <div class="input-box mr-4">
                 <%= f.select :size_type, ['UK', 'US'], class: "text-center" %>
@@ -28,14 +28,14 @@
               </div>
             </div>
 
-            <div class="d-flex align-items-center pt-2">
+            <div class="d-flex align-items-center pt-1">
               <%= f.label :gender, 'Gender', class: 'label pr-2 text-center' %>
               <div class="input-box mr-4">
                 <%= f.select :gender, ['', 'Unisex', 'Male', 'Female'], class: "text-center" %>
               </div>
             </div>
 
-            <div class="d-flex align-items-center pt-2">
+            <div class="d-flex align-items-center pt-1">
               <%= f.label :price_less_than, 'Price range', class: 'label pr-2 text-center' %>
               <div class="input-box mr-4">
                 <%= f.number_field :price_more_than, in: (1..99999), class: "text-center" %> –
