@@ -25,15 +25,11 @@ Rails.application.routes.draw do
   post '/listings/:id/checkout', to: 'checkouts#create', as: :checkout_create
 
   resources :shippingdetails, only: [:create, :destroy]
+  resources :orders, only: [:index, :show, :create]
 
-  resources :orders, only: [:show, :create] do
-    resources :payments, only: :new
-  end
-
+  get '/orders/:id/cancel', to: "orders#cancel", as: :order_cancel # check this route when free
   get '/seller/:id', to: "listings#seller_all", as: :seller
   get '/seller/:id/shipping', to: "listings#seller_ship", as: :seller_ship # to-be-shipped route
 
-
   mount StripeEvent::Engine, at: '/stripe-webhooks'
-
 end

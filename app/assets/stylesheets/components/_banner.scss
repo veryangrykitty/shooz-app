@@ -1,0 +1,18 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 70px 0;
+  text-align: center;
+  background-image:
+    url(chevron-banner.png);
+  background-position: 0% 30%;
+  object-fit: contain;
+}
+
+.banner h1 {
+  margin: 0;
+  color: $gray;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
