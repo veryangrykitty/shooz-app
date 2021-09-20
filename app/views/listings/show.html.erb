@@ -52,7 +52,7 @@
         <p class='my-0'><strong>Condition: </strong><%= @listing.condition.capitalize %></p>
         <p><strong>Est. Delivery Time: </strong> <%= rand(1..10) %> days</p>
       </div>
-      <%= link_to "Make order", checkout_path, id: "buy-btn", class: 'btn btn-block btn-primary' %>
+      <%= link_to "Order now", checkout_path, id: "buy-btn", class: 'btn btn-block btn-primary' %>
     </div>
   </div>
 
