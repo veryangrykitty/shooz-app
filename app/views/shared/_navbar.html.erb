@@ -5,7 +5,7 @@
   <% end %>
 
   <% if @listings %>
-    <div class="w-100 px-3">
+    <div class="w-50 px-3">
       <%= form_with url: request.path, class: "text-light", method: :get do |f| %>
 
         <div class="search-bar">
@@ -66,9 +66,8 @@
       </div>
     </div>
   <% else %>
-    <div class="nav-item text-white text-right px-3 align-self-start mt-2">
-      <%= link_to "Login", new_user_session_path, class: "nav-link", class: "text-white text-decoration-none" %>
+    <div class="nav-item text-right px-3 align-self-start mt-2">
+      <%= link_to "Login/Sign up", new_user_session_path, class: "nav-link", class: "text-white text-decoration-none" %>
     </div>
   <% end %>
-
 </div>

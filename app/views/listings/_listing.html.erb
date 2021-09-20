@@ -22,7 +22,7 @@
 
         <div class="card-text d-flex justify-content-between align-items-end">
           <p><%= listing.size %><br><%= listing.gender.capitalize %></p>
-          <p>SGD <strong><%= listing.price %></strong></p>
+          <p><%= humanized_money_with_symbol(listing.price) %></p>
         </div>
 
         <%= link_to "View shoe", listing_path(listing), class: "btn btn-primary btn-block" %>

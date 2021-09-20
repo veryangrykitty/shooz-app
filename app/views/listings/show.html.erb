@@ -18,7 +18,9 @@
     <div class="col-12 col-md-6">
       <div class="d-flex justify-content-between pt-5">
         <div>
-          <h1><strong><%= @listing.brand.capitalize %> <%= @listing.sneaker_model_name.capitalize %></strong></h1>
+          <h1><%= @listing.brand.capitalize %> <%= @listing.sneaker_model_name.capitalize %></h1>
+          <h4 class='my-2'><%= humanized_money_with_symbol(@listing.price) %></h4>
+
           <% if current_user.id == @listing.seller_id %>
             <div class="your-listing-tag">Your listing</div>
           <% end %>
@@ -31,7 +33,7 @@
         <% end %>
       </div>
 
-      <table class="table table-white table-sm align-middle text-center mt-5">
+      <table class="table table-white table-sm align-middle text-center my-5">
         <thead>
           <tr>
             <th scope="col">Size</th>
@@ -46,26 +48,18 @@
         </tbody>
       </table>
 
-      <div class="d-flex pt-3">
-        <p>
-          Condition: <br>
-          est. Delivery Time:
-        </p>
-        <p class="pl-4">
-          <%= @listing.condition.capitalize %><br>
-          <%= rand(1..10) %> days<br><br>
-        </p>
+      <div class="mb-5 px-3">
+        <p class='my-0'><strong>Condition: </strong><%= @listing.condition.capitalize %></p>
+        <p><strong>Est. Delivery Time: </strong> <%= rand(1..10) %> days</p>
       </div>
-
-      <p class="pb-3">
-        SGD <strong><%= @listing.price %></strong></p>
-      </p>
-
       <%= link_to "Make order", checkout_path, id: "buy-btn", class: 'btn btn-block btn-primary' %>
     </div>
-
   </div>
-  <h2 class="pt-4">More from this <strong><%= link_to 'seller', seller_path(@listing.seller) %></strong></h2>
+
+  <div class="d-flex justify-content-between mt-4 align-items-center">
+    <h2>More from this seller</h2>
+      <%= link_to 'View more', seller_path(@listing.seller), class: 'btn btn-outline-primary' %>
+    </div>
   <hr>
 
   <div class="row">
