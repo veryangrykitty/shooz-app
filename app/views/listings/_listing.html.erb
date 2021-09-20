@@ -9,8 +9,10 @@
         <img src="https://source.unsplash.com/200x200/?sneaker" class="card-img-top" alt="sneaker image">
       <% end %>
 
-      <% if current_user.id == listing.seller_id %>
-        <div class="your-listing-tag top-left">Your listing</div>
+      <% if user_signed_in? %>
+        <% if current_user.id == listing.seller_id %>
+          <div class="your-listing-tag top-left">Your listing</div>
+        <% end %>
       <% end %>
 
       <div class="card-body">
