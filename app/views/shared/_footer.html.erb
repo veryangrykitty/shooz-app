@@ -1,17 +1,48 @@
 <div class="bg-primary py-5">
-  <div class="container">
+  <div class="container footer">
+    <%= link_to "/", class: "align-self-start footer-logo" do %>
+      <%= image_tag "logo.png", class: 'pb-4' %>
+    <% end %>
+
     <div class="row">
-      <div class="col-12 col-md-3">
-        <span class="footer-title">Buy</span>
-        <%= link_to 'All listings', root_path %>
+
+      <div class="col-12 col-md-2">
+        <div class="d-flex flex-column mb-4">
+          <span class="footer-title mb-3">Account</span>
+          <%= link_to 'Login', root_path %>
+          <%= link_to 'Sign up', orders_path %>
+        </div>
       </div>
 
-      <div class="col-12 col-md-3">
-        <span class="footer-title">Sell</span>
+      <div class="col-12 col-md-2">
+        <div class="d-flex flex-column mb-4">
+          <span class="footer-title mb-3">Buy</span>
+          <%= link_to 'All listings', root_path %>
+          <%= link_to 'Purchases', orders_path %>
+        </div>
       </div>
+
+      <div class="col-12 col-md-2">
+        <div class="d-flex flex-column mb-4">
+          <span class="footer-title mb-3">Sell</span>
+          <%= link_to 'My listings', seller_path(current_user) %>
+          <%= link_to 'To be shipped', seller_ship_path(current_user) %>
+          <%= link_to 'Create listing', new_listing_path %>
+        </div>
+      </div>
+
       <div class="col-12 col-md-6">
-        <span class="footer-title">Sign up for discounts, promotions, and more.</span>
+        <span class="footer-title">Receive discounts, promotions, and more.</span>
+        <%= form_with url: request.path, method: :get, class: 'mt-3' do |f| %>
+
+          <%= f.text_field :email, placeholder: 'hello@gmail.com', class: 'input-l py-1 px-3' %>
+          <button type="submit" class="input-r p-1 footer-btn">
+            <i class="fas fa-chevron-right px-1"></i>
+          </button>
+
+        <% end %>
       </div>
+
     </div>
   </div>
 </div>
