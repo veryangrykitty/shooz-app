@@ -13,8 +13,8 @@ letters.each do |letter|
   User.create(email: "#{letter}@gmail.com", password: "123123")
 end
 
-lastfiveusers = User.last(5)
-
+lastfiveusers = User.last(7)
+i = 1
 lastfiveusers.each do |user|
   3.times do
     brand = %w[nike adidas newbalance airjordan reebok].sample
@@ -32,8 +32,11 @@ lastfiveusers.each do |user|
     #   io: File.open("development/ogr6ifvcuhjttn473eijtcatonwh"),
     #   filename: 'file.png'
     # )
+
+    listing.photos.attach(io: File.open("app/assets/images/#{i}.png"), filename: "#{i}.png")
     listing.seller = user
     listing.save
     puts "listing created"
+    i += 1
   end
 end
