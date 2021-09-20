@@ -1,9 +1,13 @@
 .card {
-  min-width: 250px;
-
   box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 5px 0px;
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 15px 40px -15px;
     transition: 0.3s;
   }
+}
+.img-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
 }
