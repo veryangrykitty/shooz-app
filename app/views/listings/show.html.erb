@@ -5,7 +5,9 @@
       <div class="py-5">
         <% if @listing.photos.first %>
           <% @listing.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <div class="img-holder">
+              <%= cl_image_tag photo.key, crop: :scale, class: "img-fluid" %>
+            </div>
           <% end %>
         <% else %>
           <img src="https://source.unsplash.com/200x200/?sneaker" class="card-img-top" alt="sneaker image">
