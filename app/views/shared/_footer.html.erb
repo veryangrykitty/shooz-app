@@ -1,7 +1,7 @@
-<div class="bg-primary py-5">
+<div class="bg-primary pt-4">
   <div class="container footer">
     <%= link_to "/", class: "align-self-start footer-logo" do %>
-      <%= image_tag "logo.png", class: 'pb-4' %>
+      <%= image_tag "logo.png", class: 'pb-2' %>
     <% end %>
 
     <div class="row">
@@ -25,8 +25,8 @@
       <div class="col-12 col-md-2">
         <div class="d-flex flex-column mb-4">
           <span class="footer-title mb-3">Sell</span>
-          <%= link_to 'My listings', seller_path(current_user) %>
-          <%= link_to 'To be shipped', seller_ship_path(current_user) %>
+          <%= link_to 'My listings', root_path %>
+          <%= link_to 'To be shipped', root_path %>
           <%= link_to 'Create listing', new_listing_path %>
         </div>
       </div>
