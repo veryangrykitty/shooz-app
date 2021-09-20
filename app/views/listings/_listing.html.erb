@@ -1,20 +1,30 @@
-<div class="card mb-5 mx-3">
-  <%= link_to listing_path(listing), class: "text-decoration-none" do %>
-  <% if listing.photos.first %>
-    <%= cl_image_tag listing.photos.first.key, height: 248, width: 248, crop: :scale, class: "img-fluid" %>
-  <% else %>
-    <img src="https://source.unsplash.com/200x200/?sneaker" class="card-img-top" alt="sneaker image">
-  <% end %>
+<div class="col-12 col-md-6 col-lg-4">
+  <div class="card my-3">
 
+    <%= link_to listing_path(listing), class: "text-decoration-none" do %>
 
-    <div class="card-body">
+      <% if listing.photos.first %>
+        <%= cl_image_tag listing.photos.first.key, height: 200, width: 200, crop: :scale, class: "img-fluid" %>
+      <% else %>
+        <img src="https://source.unsplash.com/200x200/?sneaker" class="card-img-top" alt="sneaker image">
+      <% end %>
 
-      <h3 class="card-title"><strong><%= listing.brand.capitalize %> <%= listing.sneaker_model_name.capitalize %></strong></h3>
+      <% if current_user.id == listing.seller_id %>
+        <div class="your-listing-tag top-left">Your listing</div>
+      <% end %>
 
-      <div class="card-text d-flex justify-content-between align-items-end">
-        <p><%= listing.size %><br><%= listing.gender.capitalize %></p>
-        <p>SGD <strong><%= listing.price %></strong></p>
+      <div class="card-body">
+        <h3 class="card-title"><strong><%= listing.brand.capitalize %> <%= listing.sneaker_model_name.capitalize %></strong></h3>
+
+        <div class="card-text d-flex justify-content-between align-items-end">
+          <p><%= listing.size %><br><%= listing.gender.capitalize %></p>
+          <p>SGD <strong><%= listing.price %></strong></p>
+        </div>
+
+        <%= link_to "View shoe", listing_path(listing), class: "btn btn-primary btn-block" %>
       </div>
-    </div>
-  <% end %>
+
+    <% end %>
+
+  </div>
 </div>

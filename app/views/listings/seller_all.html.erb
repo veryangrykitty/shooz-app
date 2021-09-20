@@ -1,12 +1,14 @@
 <div class="container">
   <% if @seller == current_user %>
-    <h1 class="pt-4 pl-4">Your listings</h1>
+    <% if @query %>
+      <%= render 'query', page: 'Listed' %>
+    <% end %>
 
-    <div class="d-flex justify-content-between pl-4 pb-3">
+    <div class="d-flex justify-content-between pt-4">
       <div>
-        <%= link_to 'Listed', seller_path(current_user), class: 'mr-3' %>
+        <%= link_to 'Listed', seller_path(current_user), class: 'tab-active mr-3' %>
 
-        <%= link_to 'To be shipped', seller_ship_path(current_user), class: 'mr-3' %>
+        <%= link_to 'To be shipped', seller_ship_path(current_user) %>
       </div>
 
       <%= link_to new_listing_path, class: "btn btn-primary"  do %>
@@ -15,10 +17,16 @@
     </div>
 
   <% else %>
-    <h1><%= @seller.email %> listings</h1>
+    <h1 class="pt-4"><%= @seller.email %> listings</h1>
   <% end %>
 
-  <div class="d-flex flex-wrap">
-    <%= render @listings %>
-  </div>
+  <% if @seller == current_user && @listings.empty? %>
+    <p class="py-4"><em>You have 0 listings found</em></p>
+  <% elsif @listings.empty? %>
+    <p class="py-4"><em>0 listings found</em></p>
+  <% else %>
+    <div class="row">
+      <%= render @listings %>
+    </div>
+  <% end %>
 </div>
