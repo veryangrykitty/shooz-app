@@ -18,9 +18,7 @@ Rails.application.routes.draw do
   resources :listings
   resources :shippingdetails, only: [:create, :destroy]
 
-  resources :orders, only: [:show, :create] do
-    # resources :payments, only: :new
-  end
+  resources :orders, only: [:index, :show, :create]
 
   get '/orders/:id/cancel', to: "orders#cancel", as: :order_cancel
   get '/seller/:id', to: "listings#seller_all", as: :seller
