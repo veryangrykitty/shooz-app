@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="col-8">
+    <div class="col-lg-8 col-md-12">
       <div class="border">
         <div>
           <h2 class="px-5 py-3">Checkout</h2>
@@ -15,20 +15,14 @@
         </div>
       </div>
     </div>
-    <div>
-      <div class="position-fixed col-4">
-        <div class="sticky-holder position-relative">
-
-          <div class="position-fixed">
-            <%= render "shared/checkoutitem", listing: @listing %>
-            <div>
-              <%= form_tag orders_path do %>
-                <%= hidden_field_tag 'id', @listing.id %>
-                <%= submit_tag 'Proceed to payment', class: 'btn btn-primary btn-block mt-4' %>
-              <% end %>
-            </div>
-          </div>
-
+    <div class="position-relative">
+      <div id='checkout' class="position-fixed col-4">
+        <%= render "shared/checkoutitem", listing: @listing %>
+        <div>
+          <%= form_tag orders_path do %>
+            <%= hidden_field_tag 'id', @listing.id %>
+            <%= submit_tag 'Proceed to payment', class: 'btn btn-primary btn-block mt-4' %>
+          <% end %>
         </div>
       </div>
     </div>
