@@ -2,7 +2,15 @@
 </div>
 
 <div class="container">
-  <div class="d-flex flex-wrap justify-content-center">
-    <%= render @listings %>
+  <% if @query %>
+    <%= render 'query' %>
+  <% end %>
+
+  <div class="row">
+    <% if @listings.empty? %>
+      <p class="pl-4"><em>0 results found</em></p>
+    <% else %>
+      <%= render @listings %>
+    <% end %>
   </div>
 </div>

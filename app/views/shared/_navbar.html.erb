@@ -1,27 +1,61 @@
-<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon py-4">
 
-  <ul class="navbar-nav mr-auto">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
-    <% end %>
-    <li class="nav-item active pr-2">
-      <%= link_to "ALL", "/", class: "nav-link" %>
-    </li>
-    <li class="nav-item active pr-2">
-      <%= link_to "MALE", "/", class: "nav-link" %>
-    </li>
-    <li class="nav-item active pr-2">
-      <%= link_to "FEMALE", "/", class: "nav-link" %>
-    </li>
-    <li class="nav-item active pr-2">
-      <%= link_to "UNISEX", "/", class: "nav-link" %>
-    </li>
-  </ul>
+  <%= link_to "/", class: "navbar-brand" do %>
+    <%= image_tag "logo.png" %>
+  <% end %>
+
+  <% if @listings %>
+    <div class="w-100 px-3">
+      <%= form_with url: request.path, class: "text-light", method: :get do |f| %>
+
+        <div class="search-bar">
+          <button type="submit" class="input-l">
+            <i class="fas fa-search"></i>
+          </button>
+          <%= f.text_field :query, class: "search-text input-r", placeholder: "Find shoe",
+          data: { toggle: "collapse", target: "#search-collapse"}
+          %>
+        </div>
+
+        <div class="collapse block" id="search-collapse">
+          <div class="d-flex flex-wrap">
+
+            <div class="d-flex align-items-center pt-3">
+              <%= f.label :size, 'Size', class: 'label pr-2' %>
+              <div class="input-box mr-4">
+                <%= f.select :size_type, ['UK', 'US'] %>
+                <%= f.number_field :size , in: (3.0..11.0), step: 0.5 %>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center pt-3">
+              <%= f.label :gender, 'Gender', class: 'label pr-2' %>
+              <div class="input-box mr-4">
+                <%= f.select :gender, ['', 'Unisex', 'Male', 'Female'] %>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center pt-3">
+              <%= f.label :price_less_than, 'Price range', class: 'label pr-2' %>
+              <div class="input-box mr-4">
+                <%= f.number_field :price_more_than, in: (1..99999) %> –
+                <%= f.number_field :price_less_than, in: (1..99999) %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  <% end %>
 
   <% if user_signed_in? %>
     <div class="nav-item dropdown text-white px-3">
-      <div class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= current_user.email %>
+      <div class="dropdown-toggle pointer" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="far fa-user pr-2">
+        </i>
+        My Account
         <% #, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       </div>
 
