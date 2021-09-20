@@ -15,14 +15,20 @@
         </div>
       </div>
     </div>
-    <div class="position-relative">
+    <div>
       <div class="position-fixed col-4">
-        <%= render "shared/checkoutitem", listing: @listing %>
-        <div>
-          <%= form_tag orders_path do %>
-            <%= hidden_field_tag 'id', @listing.id %>
-            <%= submit_tag 'Proceed to payment', class: 'btn btn-primary btn-block mt-4' %>
-          <% end %>
+        <div class="sticky-holder position-relative">
+
+          <div class="position-fixed">
+            <%= render "shared/checkoutitem", listing: @listing %>
+            <div>
+              <%= form_tag orders_path do %>
+                <%= hidden_field_tag 'id', @listing.id %>
+                <%= submit_tag 'Proceed to payment', class: 'btn btn-primary btn-block mt-4' %>
+              <% end %>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
