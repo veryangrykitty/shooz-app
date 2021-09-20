@@ -10,7 +10,11 @@
     <% if @listings.empty? %>
       <p class="pl-4"><em>0 results found</em></p>
     <% else %>
-      <%= render @listings %>
+      <%= render @records %>
     <% end %>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <%= render partial: 'pagy/bootstrap_nav', locals: {pagy: @pagy} %>
   </div>
 </div>
