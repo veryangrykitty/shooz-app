@@ -1,58 +1,72 @@
 <div class="container">
-
   <div class="row">
+
     <div class="col-12 col-md-6">
       <div class="py-5">
-        <% @listing.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% if @listing.photos.first %>
+          <% @listing.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+        <% else %>
+          <img src="https://source.unsplash.com/200x200/?sneaker" class="card-img-top" alt="sneaker image">
         <% end %>
       </div>
     </div>
 
     <div class="col-12 col-md-6">
-        <div class="d-flex justify-content-between pt-5">
-          <div>
-            <h1><strong><%= @listing.brand.capitalize %> <%= @listing.sneaker_model_name.capitalize %></strong></h1>
-          </div>
-
-          <% if current_user == @listing.seller %>
-            <%= link_to edit_listing_path(@listing) do %>
-              <i class="far fa-edit"></i>
-            <% end %>
+      <div class="d-flex justify-content-between pt-5">
+        <div>
+          <h1><strong><%= @listing.brand.capitalize %> <%= @listing.sneaker_model_name.capitalize %></strong></h1>
+          <% if current_user.id == @listing.seller_id %>
+            <div class="your-listing-tag">Your listing</div>
           <% end %>
         </div>
 
-        <table class="table table-white table-sm align-middle text-center mt-5">
-          <thead>
-            <tr>
-              <th scope="col">Size</th>
-              <th scope="col">Gender</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= @listing.size %></td>
-              <td><%= @listing.gender.capitalize %></td>
-            </tr>
-          </tbody>
-        </table>
+        <% if current_user == @listing.seller %>
+          <%= link_to edit_listing_path(@listing) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        <% end %>
+      </div>
 
-        <div class="d-flex pt-3">
-          <p>
-            Condition: <br>
-            est. Delivery Time:
-          </p>
-          <p class="pl-4">
-            <%= @listing.condition.capitalize %><br>
-            <%= rand(1..10) %> days<br><br>
-          </p>
-        </div>
+      <table class="table table-white table-sm align-middle text-center mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Size</th>
+            <th scope="col">Gender</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @listing.size %></td>
+            <td><%= @listing.gender.capitalize %></td>
+          </tr>
+        </tbody>
+      </table>
 
-        <p class="pb-3">
-          SGD <strong><%= @listing.price %></strong></p>
+      <div class="d-flex pt-3">
+        <p>
+          Condition: <br>
+          est. Delivery Time:
         </p>
+        <p class="pl-4">
+          <%= @listing.condition.capitalize %><br>
+          <%= rand(1..10) %> days<br><br>
+        </p>
+      </div>
 
-        <%= link_to "Make order", checkout_path, id: "buy-btn", class: 'btn btn-block btn-primary' %>
+      <p class="pb-3">
+        SGD <strong><%= @listing.price %></strong></p>
+      </p>
+
+      <%= link_to "Make order", checkout_path, id: "buy-btn", class: 'btn btn-block btn-primary' %>
     </div>
+
+  </div>
+  <h2 class="pt-4">More from this <strong><%= link_to 'seller', seller_path(@listing.seller) %></strong></h2>
+  <hr>
+
+  <div class="row">
+    <%= render @listings %>
   </div>
 </div>

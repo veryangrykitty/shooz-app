@@ -1,10 +1,13 @@
 <div class="container">
-  <h1 class="pt-4 pl-4">To be shipped</h1>
-  <div class="d-flex justify-content-between pl-4 pb-3">
+  <% if @query %>
+    <%= render 'query', page: 'To-be-shipped' %>
+  <% end %>
+
+  <div class="d-flex justify-content-between pt-4">
 
     <div>
       <%= link_to 'Listed', seller_path(current_user), class: 'mr-3' %>
-      <%= link_to 'To be shipped', seller_ship_path(current_user), class: 'mr-3' %>
+      <%= link_to 'To be shipped', seller_ship_path(current_user), class: 'tab-active' %>
     </div>
 
     <%= link_to new_listing_path, class: "btn btn-primary"  do %>
@@ -13,14 +16,11 @@
 
   </div>
 
-  <% if @seller == current_user && !@listings.empty? %>
-
-
-  <% else %>
-    <p class="pl-4"><em>You have 0 listings that require shipping</em></p>
+  <% if @seller == current_user && @listings.empty? %>
+    <p class="py-4"><em>You have 0 listings that require shipping</em></p>
   <% end %>
 
-  <div class="d-flex flex-wrap">
+  <div class="row">
     <%= render @listings %>
   </div>
 </div>

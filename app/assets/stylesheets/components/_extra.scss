@@ -1,0 +1,18 @@
+.tab-active {
+  padding-bottom: 4px;
+  border-bottom: 4px solid black;
+}
+.your-listing-tag {
+  display: inline-block;
+  font-size: 12px;
+  color: rgb(0, 99, 74);
+  background-color: rgb(96, 240, 204);
+  border: 1px solid rgb(0, 99, 74);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.top-left {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+}

@@ -1,0 +1,21 @@
+<div class="pt-4">
+  <% if @query != "" %>
+    <h1 class="text-center ">"<%= @query %>"</h1>
+  <% end %>
+  <div class="text-center">
+    <p>
+      <% if params[:size] != "" %>
+        <%= @size %>&nbsp;&nbsp;
+      <% end %>
+      <% if @gender != "" %>
+        <%= @gender %>&nbsp;&nbsp;
+      <% end %>
+      <% if params[:price_more_than] != "" || params[:price_less_than] != "" %>
+        SGD <%= @price_range %>
+      <% end %>
+    </p>
+
+    <p>in: "<%= page %>"</p>
+  </div>
+  <hr>
+</div>
